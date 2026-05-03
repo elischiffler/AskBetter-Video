@@ -10,29 +10,40 @@ export const FrustrationScene: React.FC = () => {
 
   if (rel < 0 || rel > 180) return null;
 
-  // Fake ChatGPT-style header
   const messages = [
     { text: "continue", isUser: true, frame: 5 },
-    { text: "Sure! As I was saying, the key factors to consider when...", isUser: false, frame: 20 },
+    {
+      text: "Sure! As I was saying, the key factors to consider when...",
+      isUser: false,
+      frame: 20,
+    },
     { text: "continue", isUser: true, frame: 55 },
-    { text: "...building scalable systems include proper architecture and...", isUser: false, frame: 70 },
+    {
+      text: "...building scalable systems include proper architecture and...",
+      isUser: false,
+      frame: 70,
+    },
     { text: "continue", isUser: true, frame: 105 },
-    { text: "...load balancing strategies. Additionally, you should...", isUser: false, frame: 120 },
+    {
+      text: "...load balancing strategies. Additionally, you should...",
+      isUser: false,
+      frame: 120,
+    },
     { text: "continue", isUser: true, frame: 145 },
   ];
 
-  const bgPulse = interpolate(rel, [140, 180], [0, 0.15], {
+  const bgPulse = interpolate(rel, [140, 180], [0, 0.12], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
   return (
     <AbsoluteFill style={{ background: COLORS.bg }}>
-      {/* Chat header */}
+      {/* ChatGPT-style header */}
       <div
         style={{
           padding: "60px 32px 20px",
-          borderBottom: `1px solid ${COLORS.surfaceLight}`,
+          borderBottom: `1px solid rgba(139, 92, 246, 0.15)`,
           display: "flex",
           alignItems: "center",
           gap: 16,
@@ -43,7 +54,7 @@ export const FrustrationScene: React.FC = () => {
             width: 44,
             height: 44,
             borderRadius: 22,
-            background: `linear-gradient(135deg, #74aa9c, #10a37f)`,
+            background: "linear-gradient(135deg, #74aa9c, #10a37f)",
           }}
         />
         <span
@@ -51,7 +62,7 @@ export const FrustrationScene: React.FC = () => {
             color: COLORS.text,
             fontSize: 30,
             fontWeight: 600,
-            fontFamily: "Inter, system-ui, sans-serif",
+            fontFamily: "system-ui, -apple-system, sans-serif",
           }}
         >
           ChatGPT
@@ -70,10 +81,10 @@ export const FrustrationScene: React.FC = () => {
         ))}
       </div>
 
-      {/* Red frustration overlay */}
+      {/* Frustration overlay — uses error red */}
       <AbsoluteFill
         style={{
-          background: `rgba(255, 71, 87, ${bgPulse})`,
+          background: `rgba(239, 68, 68, ${bgPulse})`,
           pointerEvents: "none",
         }}
       />

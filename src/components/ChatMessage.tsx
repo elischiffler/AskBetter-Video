@@ -23,9 +23,11 @@ export const ChatMessage: React.FC<{
   const charsToShow = typing
     ? Math.min(
         text.length,
-        Math.floor(interpolate(relativeFrame, [0, 60], [0, text.length], {
-          extrapolateRight: "clamp",
-        }))
+        Math.floor(
+          interpolate(relativeFrame, [0, 60], [0, text.length], {
+            extrapolateRight: "clamp",
+          })
+        )
       )
     : text.length;
 
@@ -51,8 +53,9 @@ export const ChatMessage: React.FC<{
           borderRadius: isUser ? "20px 20px 4px 20px" : "20px 20px 20px 4px",
           maxWidth: "80%",
           fontSize: 28,
-          fontFamily: "Inter, system-ui, sans-serif",
+          fontFamily: "system-ui, -apple-system, sans-serif",
           lineHeight: 1.5,
+          border: isUser ? "none" : `1px solid ${COLORS.border}`,
           boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
         }}
       >

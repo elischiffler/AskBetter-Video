@@ -8,18 +8,22 @@ export const SearchScene: React.FC = () => {
 
   if (rel < 0 || rel > duration) return null;
 
-  const opacity = interpolate(rel, [0, 10, duration - 10, duration], [0, 1, 1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const opacity = interpolate(
+    rel,
+    [0, 10, duration - 10, duration],
+    [0, 1, 1, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
 
   const searchQuery = "how to make AI respond better";
   const charsToShow = Math.min(
     searchQuery.length,
-    Math.floor(interpolate(rel, [20, 80], [0, searchQuery.length], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    }))
+    Math.floor(
+      interpolate(rel, [20, 80], [0, searchQuery.length], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
+    )
   );
 
   const showResults = rel > 90;
@@ -33,31 +37,47 @@ export const SearchScene: React.FC = () => {
       {/* Browser chrome */}
       <div
         style={{
-          background: "#1e1e2e",
+          background: COLORS.card,
           padding: "60px 24px 16px",
-          borderBottom: `1px solid ${COLORS.surfaceLight}`,
+          borderBottom: `1px solid ${COLORS.border}`,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            gap: 8,
-            marginBottom: 16,
-          }}
-        >
-          <div style={{ width: 14, height: 14, borderRadius: 7, background: "#ff5f57" }} />
-          <div style={{ width: 14, height: 14, borderRadius: 7, background: "#febc2e" }} />
-          <div style={{ width: 14, height: 14, borderRadius: 7, background: "#28c840" }} />
+        <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
+          <div
+            style={{
+              width: 14,
+              height: 14,
+              borderRadius: 7,
+              background: "#ff5f57",
+            }}
+          />
+          <div
+            style={{
+              width: 14,
+              height: 14,
+              borderRadius: 7,
+              background: "#febc2e",
+            }}
+          />
+          <div
+            style={{
+              width: 14,
+              height: 14,
+              borderRadius: 7,
+              background: "#28c840",
+            }}
+          />
         </div>
         {/* Search bar */}
         <div
           style={{
-            background: COLORS.surface,
-            borderRadius: 24,
+            background: COLORS.bg,
+            borderRadius: 16,
             padding: "14px 24px",
             display: "flex",
             alignItems: "center",
             gap: 12,
+            border: `1px solid ${COLORS.inputBorder}`,
           }}
         >
           <span style={{ fontSize: 24 }}>🔍</span>
@@ -65,7 +85,7 @@ export const SearchScene: React.FC = () => {
             style={{
               color: COLORS.text,
               fontSize: 26,
-              fontFamily: "Inter, system-ui, sans-serif",
+              fontFamily: "system-ui, -apple-system, sans-serif",
             }}
           >
             {searchQuery.slice(0, charsToShow)}
@@ -93,7 +113,7 @@ export const SearchScene: React.FC = () => {
             {
               title: "r/ChatGPT - Found this amazing prompt analyzer tool",
               url: "reddit.com/r/ChatGPT",
-              desc: "Just discovered AskBetter - it analyzes your prompts and tells you...",
+              desc: "Just discovered AskBetter — it analyzes your prompts and tells you...",
               highlight: true,
             },
             {
@@ -108,11 +128,11 @@ export const SearchScene: React.FC = () => {
                 marginBottom: 28,
                 padding: result.highlight ? "20px 24px" : "0",
                 background: result.highlight
-                  ? `${COLORS.primary}15`
+                  ? "rgba(124, 58, 237, 0.08)"
                   : "transparent",
                 borderRadius: 16,
                 border: result.highlight
-                  ? `2px solid ${COLORS.primary}40`
+                  ? `2px solid rgba(124, 58, 237, 0.4)`
                   : "none",
               }}
             >
@@ -120,7 +140,7 @@ export const SearchScene: React.FC = () => {
                 style={{
                   color: COLORS.textDim,
                   fontSize: 20,
-                  fontFamily: "Inter, system-ui, sans-serif",
+                  fontFamily: "system-ui, -apple-system, sans-serif",
                   marginBottom: 4,
                 }}
               >
@@ -131,7 +151,7 @@ export const SearchScene: React.FC = () => {
                   color: result.highlight ? COLORS.primaryLight : "#8ab4f8",
                   fontSize: 28,
                   fontWeight: 600,
-                  fontFamily: "Inter, system-ui, sans-serif",
+                  fontFamily: "system-ui, -apple-system, sans-serif",
                   marginBottom: 6,
                 }}
               >
@@ -141,7 +161,7 @@ export const SearchScene: React.FC = () => {
                 style={{
                   color: COLORS.textMuted,
                   fontSize: 22,
-                  fontFamily: "Inter, system-ui, sans-serif",
+                  fontFamily: "system-ui, -apple-system, sans-serif",
                 }}
               >
                 {result.desc}

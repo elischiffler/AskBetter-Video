@@ -8,15 +8,17 @@ export const RedditScene: React.FC = () => {
 
   if (rel < 0 || rel > duration) return null;
 
-  const opacity = interpolate(rel, [0, 10, duration - 10, duration], [0, 1, 1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const opacity = interpolate(
+    rel,
+    [0, 10, duration - 10, duration],
+    [0, 1, 1, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
 
   const linkGlow = interpolate(
     Math.sin(rel * 0.15),
     [-1, 1],
-    [0.3, 0.8],
+    [0.3, 0.8]
   );
 
   return (
@@ -53,7 +55,7 @@ export const RedditScene: React.FC = () => {
             color: "#d7dadc",
             fontSize: 28,
             fontWeight: 600,
-            fontFamily: "Inter, system-ui, sans-serif",
+            fontFamily: "system-ui, -apple-system, sans-serif",
           }}
         >
           r/ChatGPT
@@ -62,7 +64,6 @@ export const RedditScene: React.FC = () => {
 
       {/* Post */}
       <div style={{ padding: "24px 28px" }}>
-        {/* Vote column + content */}
         <div style={{ display: "flex", gap: 16 }}>
           {/* Votes */}
           <div
@@ -80,7 +81,7 @@ export const RedditScene: React.FC = () => {
                 color: "#d7dadc",
                 fontSize: 22,
                 fontWeight: 700,
-                fontFamily: "Inter, system-ui, sans-serif",
+                fontFamily: "system-ui, -apple-system, sans-serif",
               }}
             >
               847
@@ -94,7 +95,7 @@ export const RedditScene: React.FC = () => {
               style={{
                 color: "#818384",
                 fontSize: 20,
-                fontFamily: "Inter, system-ui, sans-serif",
+                fontFamily: "system-ui, -apple-system, sans-serif",
                 marginBottom: 8,
               }}
             >
@@ -105,30 +106,33 @@ export const RedditScene: React.FC = () => {
                 color: "#d7dadc",
                 fontSize: 30,
                 fontWeight: 700,
-                fontFamily: "Inter, system-ui, sans-serif",
+                fontFamily: "system-ui, -apple-system, sans-serif",
                 marginBottom: 16,
                 lineHeight: 1.3,
               }}
             >
-              Found this amazing prompt analyzer tool - it completely changed how I use AI
+              Found this amazing prompt analyzer tool — it completely changed how
+              I use AI
             </div>
             <div
               style={{
                 color: "#d7dadc",
                 fontSize: 24,
-                fontFamily: "Inter, system-ui, sans-serif",
+                fontFamily: "system-ui, -apple-system, sans-serif",
                 lineHeight: 1.6,
                 marginBottom: 20,
               }}
             >
-              I was struggling with getting good responses from ChatGPT until I found this tool. It analyzes your prompts and shows you exactly what you're doing wrong.
+              I was struggling with getting good responses from ChatGPT until I
+              found this tool. It analyzes your prompts and shows you exactly
+              what you're doing wrong.
             </div>
 
-            {/* The link */}
+            {/* The link — uses AskBetter purple glow */}
             <div
               style={{
-                background: `rgba(108, 99, 255, ${linkGlow * 0.15})`,
-                border: `2px solid rgba(108, 99, 255, ${linkGlow})`,
+                background: `rgba(124, 58, 237, ${linkGlow * 0.12})`,
+                border: `2px solid rgba(124, 58, 237, ${linkGlow})`,
                 borderRadius: 16,
                 padding: "20px 24px",
                 marginBottom: 20,
@@ -138,7 +142,7 @@ export const RedditScene: React.FC = () => {
                 style={{
                   color: COLORS.primaryLight,
                   fontSize: 22,
-                  fontFamily: "Inter, system-ui, sans-serif",
+                  fontFamily: "system-ui, -apple-system, sans-serif",
                   marginBottom: 4,
                 }}
               >
@@ -146,10 +150,10 @@ export const RedditScene: React.FC = () => {
               </div>
               <div
                 style={{
-                  color: "#6c9fff",
+                  color: COLORS.primaryLight,
                   fontSize: 26,
                   fontWeight: 600,
-                  fontFamily: "Inter, system-ui, sans-serif",
+                  fontFamily: "system-ui, -apple-system, sans-serif",
                   textDecoration: "underline",
                 }}
               >
@@ -157,12 +161,12 @@ export const RedditScene: React.FC = () => {
               </div>
             </div>
 
-            {/* Comments preview */}
+            {/* Comments */}
             <div
               style={{
                 color: "#818384",
                 fontSize: 20,
-                fontFamily: "Inter, system-ui, sans-serif",
+                fontFamily: "system-ui, -apple-system, sans-serif",
                 display: "flex",
                 gap: 24,
               }}

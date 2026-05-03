@@ -7,7 +7,13 @@ export const ProgressBar: React.FC<{
   maxValue?: number;
   color?: string;
   appearFrame: number;
-}> = ({ label, value, maxValue = 100, color = COLORS.primary, appearFrame }) => {
+}> = ({
+  label,
+  value,
+  maxValue = 100,
+  color = COLORS.primary,
+  appearFrame,
+}) => {
   const frame = useCurrentFrame();
   const relativeFrame = frame - appearFrame;
 
@@ -17,9 +23,12 @@ export const ProgressBar: React.FC<{
     extrapolateRight: "clamp",
   });
 
-  const width = interpolate(relativeFrame, [5, 35], [0, (value / maxValue) * 100], {
-    extrapolateRight: "clamp",
-  });
+  const width = interpolate(
+    relativeFrame,
+    [5, 35],
+    [0, (value / maxValue) * 100],
+    { extrapolateRight: "clamp" }
+  );
 
   return (
     <div style={{ opacity, marginBottom: 20, padding: "0 40px" }}>
@@ -28,7 +37,7 @@ export const ProgressBar: React.FC<{
           display: "flex",
           justifyContent: "space-between",
           marginBottom: 8,
-          fontFamily: "Inter, system-ui, sans-serif",
+          fontFamily: "system-ui, -apple-system, sans-serif",
         }}
       >
         <span style={{ color: COLORS.text, fontSize: 22, fontWeight: 500 }}>
@@ -40,9 +49,9 @@ export const ProgressBar: React.FC<{
       </div>
       <div
         style={{
-          height: 14,
-          background: COLORS.surfaceLight,
-          borderRadius: 7,
+          height: 10,
+          background: COLORS.progressTrack,
+          borderRadius: 5,
           overflow: "hidden",
         }}
       >
@@ -50,8 +59,8 @@ export const ProgressBar: React.FC<{
           style={{
             height: "100%",
             width: `${width}%`,
-            background: `linear-gradient(90deg, ${color}, ${color}aa)`,
-            borderRadius: 7,
+            background: color,
+            borderRadius: 5,
           }}
         />
       </div>

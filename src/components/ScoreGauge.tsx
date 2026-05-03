@@ -29,9 +29,9 @@ export const ScoreGauge: React.FC<{
     circumference - (currentScore / 100) * circumference;
 
   const getColor = (s: number) => {
-    if (s < 40) return COLORS.red;
-    if (s < 70) return COLORS.yellow;
-    return COLORS.green;
+    if (s < 40) return COLORS.error;
+    if (s < 70) return COLORS.warning;
+    return COLORS.positive;
   };
 
   return (
@@ -50,7 +50,7 @@ export const ScoreGauge: React.FC<{
           cy="100"
           r="80"
           fill="none"
-          stroke={COLORS.surfaceLight}
+          stroke={COLORS.progressTrack}
           strokeWidth="12"
         />
         <circle
@@ -64,7 +64,6 @@ export const ScoreGauge: React.FC<{
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
           transform="rotate(-90 100 100)"
-          style={{ transition: "stroke 0.3s" }}
         />
         <text
           x="100"
@@ -73,7 +72,7 @@ export const ScoreGauge: React.FC<{
           fill={getColor(currentScore)}
           fontSize="48"
           fontWeight="bold"
-          fontFamily="Inter, system-ui, sans-serif"
+          fontFamily="system-ui, -apple-system, sans-serif"
         >
           {Math.round(currentScore)}
         </text>
@@ -81,9 +80,9 @@ export const ScoreGauge: React.FC<{
           x="100"
           y="125"
           textAnchor="middle"
-          fill={COLORS.textMuted}
+          fill={COLORS.textDim}
           fontSize="18"
-          fontFamily="Inter, system-ui, sans-serif"
+          fontFamily="system-ui, -apple-system, sans-serif"
         >
           / 100
         </text>
@@ -92,8 +91,10 @@ export const ScoreGauge: React.FC<{
         style={{
           color: COLORS.textMuted,
           fontSize: 24,
-          fontFamily: "Inter, system-ui, sans-serif",
+          fontFamily: "system-ui, -apple-system, sans-serif",
           fontWeight: 600,
+          textTransform: "uppercase",
+          letterSpacing: 2,
         }}
       >
         {label}

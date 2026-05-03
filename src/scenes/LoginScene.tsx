@@ -1,5 +1,6 @@
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { COLORS, SCENES } from "../constants";
+import { AnimatedGrid } from "../components/AnimatedGrid";
 
 export const LoginScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -8,10 +9,12 @@ export const LoginScene: React.FC = () => {
 
   if (rel < 0 || rel > duration) return null;
 
-  const opacity = interpolate(rel, [0, 10, duration - 10, duration], [0, 1, 1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const opacity = interpolate(
+    rel,
+    [0, 10, duration - 10, duration],
+    [0, 1, 1, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
 
   const cardScale = interpolate(rel, [0, 20], [0.9, 1], {
     extrapolateRight: "clamp",
@@ -25,7 +28,9 @@ export const LoginScene: React.FC = () => {
 
   const clickEffect = rel > 60 && rel < 80;
   const btnScale = clickEffect
-    ? interpolate(rel, [60, 65, 70], [1, 0.95, 1], { extrapolateRight: "clamp" })
+    ? interpolate(rel, [60, 65, 70], [1, 0.95, 1], {
+        extrapolateRight: "clamp",
+      })
     : 1;
 
   const showSuccess = rel > 80;
@@ -37,79 +42,104 @@ export const LoginScene: React.FC = () => {
   return (
     <AbsoluteFill
       style={{
-        background: `linear-gradient(180deg, ${COLORS.bgDark} 0%, ${COLORS.surface} 100%)`,
+        background: COLORS.bg,
         justifyContent: "center",
         alignItems: "center",
         opacity,
       }}
     >
+      {/* Animated grid background */}
+      <AnimatedGrid opacity={0.4} />
+
+      {/* Card — matches AskBetter card style */}
       <div
         style={{
-          background: COLORS.surface,
+          background: COLORS.card,
           borderRadius: 24,
           padding: "48px 40px",
           width: "85%",
           maxWidth: 500,
           transform: `scale(${cardScale})`,
           boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
-          border: `1px solid ${COLORS.surfaceLight}`,
+          border: `1px solid ${COLORS.border}`,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          zIndex: 10,
         }}
       >
-        {/* Logo */}
+        {/* Logo: Ask + Better */}
         <div
           style={{
-            fontSize: 56,
-            fontWeight: 800,
-            fontFamily: "Inter, system-ui, sans-serif",
-            background: `linear-gradient(135deg, ${COLORS.primary}, ${COLORS.accent})`,
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            color: "transparent",
+            display: "flex",
             marginBottom: 12,
+            fontFamily: "system-ui, -apple-system, sans-serif",
           }}
         >
-          AskBetter
+          <span
+            style={{
+              fontSize: 56,
+              fontWeight: 900,
+              color: COLORS.text,
+              textTransform: "uppercase",
+              letterSpacing: 3,
+            }}
+          >
+            Ask
+          </span>
+          <span
+            style={{
+              fontSize: 56,
+              fontWeight: 900,
+              color: COLORS.primary,
+              textTransform: "uppercase",
+              letterSpacing: 3,
+            }}
+          >
+            Better
+          </span>
         </div>
+
+        {/* Eyebrow */}
         <div
           style={{
             color: COLORS.textMuted,
-            fontSize: 24,
-            fontFamily: "Inter, system-ui, sans-serif",
+            fontSize: 18,
+            fontWeight: 600,
+            fontFamily: "system-ui, -apple-system, sans-serif",
+            textTransform: "uppercase",
+            letterSpacing: 4,
             marginBottom: 40,
-            textAlign: "center",
           }}
         >
-          Analyze & improve your AI prompts
+          Better questions, better answers
         </div>
 
-        {/* Google Sign In */}
+        {/* Google Sign In — primary button style */}
         {showGoogleBtn && (
           <div
             style={{
               opacity: googleOpacity,
               transform: `scale(${btnScale})`,
-              background: showSuccess ? COLORS.green : "white",
+              background: showSuccess ? COLORS.positive : COLORS.primary,
               borderRadius: 12,
               padding: "16px 32px",
               display: "flex",
               alignItems: "center",
               gap: 16,
-              cursor: "pointer",
               width: "100%",
               justifyContent: "center",
-              transition: "background 0.3s",
             }}
           >
             {showSuccess ? (
               <span
                 style={{
-                  fontSize: 28,
-                  fontWeight: 600,
-                  color: "white",
-                  fontFamily: "Inter, system-ui, sans-serif",
+                  fontSize: 24,
+                  fontWeight: 700,
+                  color: COLORS.text,
+                  fontFamily: "system-ui, -apple-system, sans-serif",
+                  textTransform: "uppercase",
+                  letterSpacing: 2,
                   opacity: successOpacity,
                 }}
               >
@@ -117,13 +147,23 @@ export const LoginScene: React.FC = () => {
               </span>
             ) : (
               <>
-                <span style={{ fontSize: 28 }}>G</span>
                 <span
                   style={{
-                    fontSize: 26,
-                    fontWeight: 600,
-                    color: "#333",
-                    fontFamily: "Inter, system-ui, sans-serif",
+                    fontSize: 28,
+                    color: "white",
+                    fontWeight: 800,
+                  }}
+                >
+                  G
+                </span>
+                <span
+                  style={{
+                    fontSize: 22,
+                    fontWeight: 700,
+                    color: COLORS.text,
+                    fontFamily: "system-ui, -apple-system, sans-serif",
+                    textTransform: "uppercase",
+                    letterSpacing: 2,
                   }}
                 >
                   Sign in with Google

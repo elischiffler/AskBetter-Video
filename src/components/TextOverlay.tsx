@@ -58,14 +58,15 @@ export const TextOverlay: React.FC<{
     >
       <div
         style={{
-          background: "rgba(0,0,0,0.7)",
-          backdropFilter: "blur(10px)",
+          background: COLORS.card,
+          border: `1px solid ${COLORS.border}`,
+          backdropFilter: "blur(12px)",
           padding: "16px 32px",
           borderRadius: 16,
           fontSize,
           fontWeight: 700,
           color,
-          fontFamily: "Inter, system-ui, sans-serif",
+          fontFamily: "system-ui, -apple-system, sans-serif",
           textAlign: "center",
           maxWidth: "90%",
         }}

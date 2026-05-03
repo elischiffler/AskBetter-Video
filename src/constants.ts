@@ -7,24 +7,52 @@ export const DURATION_IN_FRAMES = FPS * DURATION_IN_SECONDS; // 1800
 export const VIDEO_WIDTH = 1080;
 export const VIDEO_HEIGHT = 1920;
 
-// Colors
+// AskBetter Brand Colors (from ASKBETTER_CONTEXT.md)
 export const COLORS = {
-  bg: "#0f0f0f",
-  bgDark: "#0a0a0a",
-  surface: "#1a1a2e",
-  surfaceLight: "#16213e",
-  primary: "#6c63ff",
-  primaryLight: "#8b83ff",
-  accent: "#00d4aa",
-  accentAlt: "#ff6b6b",
-  text: "#ffffff",
-  textMuted: "#a0a0b0",
-  textDim: "#666680",
-  red: "#ff4757",
-  green: "#2ed573",
-  yellow: "#ffa502",
-  chatBubbleUser: "#6c63ff",
-  chatBubbleAI: "#2a2a3e",
+  // Core backgrounds
+  bg: "#0f0a1e",              // Page background — deep dark purple-black
+  bgDark: "#0a0716",          // Even darker variant
+  card: "#1a1030",            // Card/panel surfaces
+  border: "rgba(139, 92, 246, 0.25)", // Card borders, dividers
+
+  // Primary accent (purple)
+  primary: "#7c3aed",         // Buttons, highlights, logo "Better" text
+  primaryHover: "#6d28d9",    // Button hover / deep purple
+  primaryLight: "#a78bfa",    // Labels, secondary text, section headers
+  primaryPale: "#c4b5fd",     // Pale lavender
+
+  // Text
+  text: "#f5f3ff",            // Headings, body text (near-white with violet tint)
+  textMuted: "#a78bfa",       // Labels, secondary text
+  textDim: "#6b5fa0",         // Disclaimers, footnotes, tertiary text
+
+  // Semantic colors
+  positive: "#22c55e",        // Positive feedback, good scores
+  positiveMid: "#4ade80",     // Positive mid
+  positiveLight: "#86efac",   // Positive light
+  warning: "#fb923c",         // Suggestion cards, warning banners
+  warningLight: "#fdba74",    // Warning light
+  error: "#ef4444",           // Warning patterns, error states
+  errorLight: "#f87171",      // Error light
+  improving: "#10b981",       // Trend-up indicators
+
+  // Category colors (intent types)
+  delegation: "#7c3aed",      // Primary purple
+  curiosity: "#a78bfa",       // Light purple
+  collaborative: "#6d28d9",   // Deep purple
+  verification: "#c4b5fd",    // Pale lavender
+
+  // Chat
+  chatBubbleUser: "#7c3aed",
+  chatBubbleAI: "#1a1030",
+
+  // UI elements
+  progressTrack: "rgba(139, 92, 246, 0.12)",
+  inputBorder: "rgba(139, 92, 246, 0.3)",
+  inputBorderFocus: "rgba(139, 92, 246, 0.8)",
+  headerBg: "rgba(15, 10, 30, 0.85)",
+  headerBorder: "rgba(139, 92, 246, 0.15)",
+  gridLine: "rgba(139, 92, 246, 0.25)",
 };
 
 // Scene timings (in frames at 30fps)

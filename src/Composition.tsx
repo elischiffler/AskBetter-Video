@@ -13,7 +13,7 @@ import { ConclusionScene } from "./scenes/ConclusionScene";
 
 export const AskBetterVideo: React.FC = () => {
   return (
-    <AbsoluteFill style={{ background: "#0f0f0f" }}>
+    <AbsoluteFill style={{ background: "#0f0a1e" }}>
       <FrustrationScene />
       <AngryScene />
       <SearchScene />

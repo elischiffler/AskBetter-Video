@@ -2,6 +2,7 @@ import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { COLORS, SCENES } from "../constants";
 import { ChatMessage } from "../components/ChatMessage";
 import { TextOverlay } from "../components/TextOverlay";
+import { AppHeader } from "../components/AppHeader";
 
 export const GroqChatScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -10,10 +11,12 @@ export const GroqChatScene: React.FC = () => {
 
   if (rel < 0 || rel > duration) return null;
 
-  const opacity = interpolate(rel, [0, 10, duration - 10, duration], [0, 1, 1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const opacity = interpolate(
+    rel,
+    [0, 10, duration - 10, duration],
+    [0, 1, 1, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
 
   const messages = [
     {
@@ -33,7 +36,7 @@ export const GroqChatScene: React.FC = () => {
       frame: 110,
     },
     {
-      text: "Instead of 'continue', try:\n\n\"Please expand on [topic] with focus on [aspect], providing 3 actionable steps with examples.\"",
+      text: 'Instead of "continue", try:\n\n"Please expand on [topic] with focus on [aspect], providing 3 actionable steps with examples."',
       isUser: false,
       frame: 125,
       typing: true,
@@ -42,63 +45,141 @@ export const GroqChatScene: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ background: COLORS.bg, opacity }}>
-      {/* Chat header */}
-      <div
-        style={{
-          padding: "60px 32px 16px",
-          borderBottom: `1px solid ${COLORS.surfaceLight}`,
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
+      <AppHeader showNav />
+
+      {/* Live Chat card — matches the Results Page AI coach */}
+      <div style={{ paddingTop: 84 }}>
         <div
           style={{
-            width: 44,
-            height: 44,
-            borderRadius: 22,
-            background: `linear-gradient(135deg, ${COLORS.primary}, ${COLORS.accent})`,
+            margin: "12px 28px",
+            background: COLORS.card,
+            borderRadius: 24,
+            border: `1px solid ${COLORS.border}`,
+            overflow: "hidden",
             display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            flexDirection: "column",
+            height: 1600,
           }}
         >
-          <span style={{ fontSize: 22, color: "white", fontWeight: 800 }}>G</span>
-        </div>
-        <div>
+          {/* Chat card header */}
           <div
             style={{
-              color: COLORS.text,
-              fontSize: 28,
-              fontWeight: 600,
-              fontFamily: "Inter, system-ui, sans-serif",
+              padding: "20px 24px",
+              borderBottom: `1px solid ${COLORS.border}`,
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
             }}
           >
-            Groq Assistant
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 20,
+                background: `linear-gradient(135deg, ${COLORS.primary}, ${COLORS.primaryHover})`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span
+                style={{ fontSize: 20, color: "white", fontWeight: 800 }}
+              >
+                G
+              </span>
+            </div>
+            <div>
+              <div
+                style={{
+                  color: COLORS.text,
+                  fontSize: 24,
+                  fontWeight: 600,
+                  fontFamily: "system-ui, -apple-system, sans-serif",
+                }}
+              >
+                AI Coach
+              </div>
+              <div
+                style={{
+                  color: COLORS.improving,
+                  fontSize: 16,
+                  fontFamily: "system-ui, -apple-system, sans-serif",
+                }}
+              >
+                ● Powered by Groq
+              </div>
+            </div>
           </div>
-          <div
-            style={{
-              color: COLORS.accent,
-              fontSize: 18,
-              fontFamily: "Inter, system-ui, sans-serif",
-            }}
-          >
-            ● Online
-          </div>
-        </div>
-      </div>
 
-      {/* Messages */}
-      <div style={{ flex: 1, paddingTop: 20, overflow: "hidden" }}>
-        {messages.map((msg, i) => (
-          <ChatMessage
-            key={i}
-            text={msg.text}
-            isUser={msg.isUser}
-            appearFrame={start + msg.frame}
-            typing={msg.typing}
-          />
-        ))}
+          {/* Messages area */}
+          <div style={{ flex: 1, paddingTop: 16, overflow: "hidden" }}>
+            {messages.map((msg, i) => (
+              <ChatMessage
+                key={i}
+                text={msg.text}
+                isUser={msg.isUser}
+                appearFrame={start + msg.frame}
+                typing={msg.typing}
+              />
+            ))}
+          </div>
+
+          {/* Action buttons at bottom — matches "Draft Better Prompts" / "Ask Your Own Question" */}
+          <div
+            style={{
+              padding: "16px 24px",
+              borderTop: `1px solid ${COLORS.border}`,
+              display: "flex",
+              gap: 12,
+            }}
+          >
+            <div
+              style={{
+                flex: 1,
+                background: COLORS.primary,
+                borderRadius: 12,
+                padding: "12px 16px",
+                textAlign: "center",
+              }}
+            >
+              <span
+                style={{
+                  color: COLORS.text,
+                  fontSize: 16,
+                  fontWeight: 700,
+                  fontFamily: "system-ui, -apple-system, sans-serif",
+                  textTransform: "uppercase",
+                  letterSpacing: 1.5,
+                }}
+              >
+                Draft Better Prompts
+              </span>
+            </div>
+            <div
+              style={{
+                flex: 1,
+                background: "transparent",
+                border: `1px solid rgba(139, 92, 246, 0.45)`,
+                borderRadius: 12,
+                padding: "12px 16px",
+                textAlign: "center",
+              }}
+            >
+              <span
+                style={{
+                  color: COLORS.textMuted,
+                  fontSize: 16,
+                  fontWeight: 700,
+                  fontFamily: "system-ui, -apple-system, sans-serif",
+                  textTransform: "uppercase",
+                  letterSpacing: 1.5,
+                }}
+              >
+                Ask Your Own Question
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <TextOverlay
