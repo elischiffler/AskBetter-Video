@@ -2,6 +2,7 @@ import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { COLORS, SCENES } from "../constants";
 import { ChatMessage } from "../components/ChatMessage";
 import { TextOverlay } from "../components/TextOverlay";
+import { BrandLogo } from "../components/BrandLogo";
 
 export const FrustrationScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -96,6 +97,19 @@ export const FrustrationScene: React.FC = () => {
         position="bottom"
         fontSize={32}
       />
+
+      {/* Brand watermark — bottom right corner */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 40,
+          right: 32,
+          opacity: 0.4,
+          zIndex: 10,
+        }}
+      >
+        <BrandLogo size={48} />
+      </div>
     </AbsoluteFill>
   );
 };

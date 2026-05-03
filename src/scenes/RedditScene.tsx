@@ -1,5 +1,6 @@
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { COLORS, SCENES } from "../constants";
+import { BrandLogo } from "../components/BrandLogo";
 
 export const RedditScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -128,7 +129,7 @@ export const RedditScene: React.FC = () => {
               what you're doing wrong.
             </div>
 
-            {/* The link — uses AskBetter purple glow */}
+            {/* The link — uses AskBetter purple glow with logo */}
             <div
               style={{
                 background: `rgba(124, 58, 237, ${linkGlow * 0.12})`,
@@ -136,28 +137,34 @@ export const RedditScene: React.FC = () => {
                 borderRadius: 16,
                 padding: "20px 24px",
                 marginBottom: 20,
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
               }}
             >
-              <div
-                style={{
-                  color: COLORS.primaryLight,
-                  fontSize: 22,
-                  fontFamily: "system-ui, -apple-system, sans-serif",
-                  marginBottom: 4,
-                }}
-              >
-                🔗 Link
-              </div>
-              <div
-                style={{
-                  color: COLORS.primaryLight,
-                  fontSize: 26,
-                  fontWeight: 600,
-                  fontFamily: "system-ui, -apple-system, sans-serif",
-                  textDecoration: "underline",
-                }}
-              >
-                ask-better-kiro-hacks.vercel.app
+              <BrandLogo size={44} pulse />
+              <div>
+                <div
+                  style={{
+                    color: COLORS.textDim,
+                    fontSize: 18,
+                    fontFamily: "system-ui, -apple-system, sans-serif",
+                    marginBottom: 4,
+                  }}
+                >
+                  🔗 Link
+                </div>
+                <div
+                  style={{
+                    color: COLORS.primaryLight,
+                    fontSize: 26,
+                    fontWeight: 600,
+                    fontFamily: "system-ui, -apple-system, sans-serif",
+                    textDecoration: "underline",
+                  }}
+                >
+                  ask-better-kiro-hacks.vercel.app
+                </div>
               </div>
             </div>
 

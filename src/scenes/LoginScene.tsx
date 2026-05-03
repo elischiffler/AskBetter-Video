@@ -1,6 +1,7 @@
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { COLORS, SCENES } from "../constants";
 import { AnimatedGrid } from "../components/AnimatedGrid";
+import { BrandLogo } from "../components/BrandLogo";
 
 export const LoginScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -68,36 +69,45 @@ export const LoginScene: React.FC = () => {
           zIndex: 10,
         }}
       >
-        {/* Logo: Ask + Better */}
+        {/* Logo icon + text: Ask + Better */}
         <div
           style={{
             display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
             marginBottom: 12,
-            fontFamily: "system-ui, -apple-system, sans-serif",
           }}
         >
-          <span
+          <BrandLogo size={80} pulse style={{ marginBottom: 16 }} />
+          <div
             style={{
-              fontSize: 56,
-              fontWeight: 900,
-              color: COLORS.text,
-              textTransform: "uppercase",
-              letterSpacing: 3,
+              display: "flex",
+              fontFamily: "system-ui, -apple-system, sans-serif",
             }}
           >
-            Ask
-          </span>
-          <span
-            style={{
-              fontSize: 56,
-              fontWeight: 900,
-              color: COLORS.primary,
-              textTransform: "uppercase",
-              letterSpacing: 3,
-            }}
-          >
-            Better
-          </span>
+            <span
+              style={{
+                fontSize: 56,
+                fontWeight: 900,
+                color: COLORS.text,
+                textTransform: "uppercase",
+                letterSpacing: 3,
+              }}
+            >
+              Ask
+            </span>
+            <span
+              style={{
+                fontSize: 56,
+                fontWeight: 900,
+                color: COLORS.primary,
+                textTransform: "uppercase",
+                letterSpacing: 3,
+              }}
+            >
+              Better
+            </span>
+          </div>
         </div>
 
         {/* Eyebrow */}

@@ -1,4 +1,5 @@
 import { COLORS } from "../constants";
+import { BrandLogo } from "./BrandLogo";
 
 export const AppHeader: React.FC<{
   showNav?: boolean;
@@ -21,17 +22,19 @@ export const AppHeader: React.FC<{
         height: 72,
       }}
     >
-      {/* Logo: "Ask" in text color + "Better" in primary */}
+      {/* Logo icon + text */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
+          gap: 12,
           fontFamily: "system-ui, -apple-system, sans-serif",
         }}
       >
+        <BrandLogo size={36} />
         <span
           style={{
-            fontSize: 32,
+            fontSize: 30,
             fontWeight: 900,
             color: COLORS.text,
             textTransform: "uppercase",
@@ -42,11 +45,12 @@ export const AppHeader: React.FC<{
         </span>
         <span
           style={{
-            fontSize: 32,
+            fontSize: 30,
             fontWeight: 900,
             color: COLORS.primary,
             textTransform: "uppercase",
             letterSpacing: 3,
+            marginLeft: -8,
           }}
         >
           Better
@@ -74,7 +78,7 @@ export const AppHeader: React.FC<{
           <div
             style={{
               background: "transparent",
-              border: `1px solid rgba(139, 92, 246, 0.45)`,
+              border: "1px solid rgba(139, 92, 246, 0.45)",
               borderRadius: 12,
               padding: "8px 16px",
               color: COLORS.textMuted,

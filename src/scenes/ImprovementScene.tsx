@@ -3,6 +3,7 @@ import { COLORS, SCENES } from "../constants";
 import { AppHeader } from "../components/AppHeader";
 import { ScoreGauge } from "../components/ScoreGauge";
 import { TextOverlay } from "../components/TextOverlay";
+import { BrandLogo } from "../components/BrandLogo";
 
 export const ImprovementScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -114,16 +115,25 @@ export const ImprovementScene: React.FC = () => {
             >
               <div
                 style={{
-                  color: COLORS.textMuted,
-                  fontSize: 16,
-                  fontWeight: 600,
-                  fontFamily: "system-ui, -apple-system, sans-serif",
-                  textTransform: "uppercase",
-                  letterSpacing: 4,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
                   marginBottom: 20,
                 }}
               >
-                Chat Analysis
+                <BrandLogo size={28} />
+                <div
+                  style={{
+                    color: COLORS.textMuted,
+                    fontSize: 16,
+                    fontWeight: 600,
+                    fontFamily: "system-ui, -apple-system, sans-serif",
+                    textTransform: "uppercase",
+                    letterSpacing: 4,
+                  }}
+                >
+                  Chat Analysis
+                </div>
               </div>
 
               <ScoreGauge

@@ -1,6 +1,7 @@
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { COLORS, SCENES } from "../constants";
 import { AnimatedGrid } from "../components/AnimatedGrid";
+import { BrandLogo } from "../components/BrandLogo";
 
 export const ConclusionScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -62,15 +63,19 @@ export const ConclusionScene: React.FC = () => {
         }}
       />
 
-      {/* Logo — "Ask" white + "Better" purple */}
+      {/* Logo with star icon — "Ask" white + "Better" purple */}
       <div
         style={{
           transform: `scale(${logoScale})`,
           textAlign: "center",
           marginBottom: 16,
           zIndex: 10,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
+        <BrandLogo size={100} pulse style={{ marginBottom: 20 }} />
         <div
           style={{
             display: "flex",
