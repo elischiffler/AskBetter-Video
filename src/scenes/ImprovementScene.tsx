@@ -165,7 +165,16 @@ export const ImprovementScene: React.FC = () => {
                     gap: 12,
                   }}
                 >
-                  <span style={{ fontSize: 22 }}>✅</span>
+                  <span
+                    style={{
+                      fontSize: 22,
+                      color: COLORS.positive,
+                      fontWeight: 800,
+                      fontFamily: "system-ui, -apple-system, sans-serif",
+                    }}
+                  >
+                    +
+                  </span>
                   <span
                     style={{
                       color: COLORS.positive,
@@ -188,7 +197,16 @@ export const ImprovementScene: React.FC = () => {
                     gap: 12,
                   }}
                 >
-                  <span style={{ fontSize: 22 }}>✅</span>
+                  <span
+                    style={{
+                      fontSize: 22,
+                      color: COLORS.positive,
+                      fontWeight: 800,
+                      fontFamily: "system-ui, -apple-system, sans-serif",
+                    }}
+                  >
+                    +
+                  </span>
                   <span
                     style={{
                       color: COLORS.positive,
@@ -207,7 +225,7 @@ export const ImprovementScene: React.FC = () => {
       </div>
 
       <TextOverlay
-        text="From 18 → 92! 🚀"
+        text="From 18 to 92"
         startFrame={start + 150}
         duration={30}
         position="bottom"

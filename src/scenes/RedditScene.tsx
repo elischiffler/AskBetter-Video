@@ -152,7 +152,7 @@ export const RedditScene: React.FC = () => {
                     marginBottom: 4,
                   }}
                 >
-                  🔗 Link
+                  Link
                 </div>
                 <div
                   style={{
@@ -178,9 +178,9 @@ export const RedditScene: React.FC = () => {
                 gap: 24,
               }}
             >
-              <span>💬 234 comments</span>
-              <span>🔄 Share</span>
-              <span>⭐ Save</span>
+              <span>234 comments</span>
+              <span>Share</span>
+              <span>Save</span>
             </div>
           </div>
         </div>

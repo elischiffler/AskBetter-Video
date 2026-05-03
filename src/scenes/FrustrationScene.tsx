@@ -91,7 +91,7 @@ export const FrustrationScene: React.FC = () => {
       />
 
       <TextOverlay
-        text="We've all been here... 😩"
+        text="We've all been here..."
         startFrame={start + 10}
         duration={80}
         position="bottom"

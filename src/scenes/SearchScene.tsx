@@ -80,7 +80,7 @@ export const SearchScene: React.FC = () => {
             border: `1px solid ${COLORS.inputBorder}`,
           }}
         >
-          <span style={{ fontSize: 24 }}>🔍</span>
+          <span style={{ fontSize: 24, color: COLORS.textDim }}>&#x2315;</span>
           <span
             style={{
               color: COLORS.text,

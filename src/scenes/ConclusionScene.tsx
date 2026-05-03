@@ -23,10 +23,10 @@ export const ConclusionScene: React.FC = () => {
   });
 
   const features = [
-    { text: "📊 Prompt Quality Scoring", delay: 50 },
-    { text: "🧠 6 Cognitive Dimensions", delay: 65 },
-    { text: "💬 AI Coach powered by Groq", delay: 80 },
-    { text: "📈 Track Your Improvement", delay: 95 },
+    { text: "Prompt Quality Scoring", delay: 50 },
+    { text: "6 Cognitive Dimensions", delay: 65 },
+    { text: "AI Coach powered by Groq", delay: 80 },
+    { text: "Track Your Improvement", delay: 95 },
   ];
 
   const showCTA = rel > 130;

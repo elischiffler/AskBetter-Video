@@ -183,7 +183,7 @@ export const GroqChatScene: React.FC = () => {
       </div>
 
       <TextOverlay
-        text="💡 Learning from the AI coach"
+        text="Learning from the AI coach"
         startFrame={start + 20}
         duration={60}
         position="bottom"

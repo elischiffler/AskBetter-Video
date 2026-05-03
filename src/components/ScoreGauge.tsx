@@ -19,9 +19,9 @@ export const ScoreGauge: React.FC<{
 
   const currentScore = interpolate(
     relativeFrame,
-    [5, animDuration],
+    [0, animDuration],
     [0, score],
-    { extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
   );
 
   const circumference = 2 * Math.PI * 80;

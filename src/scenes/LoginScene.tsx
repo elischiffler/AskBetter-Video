@@ -153,7 +153,7 @@ export const LoginScene: React.FC = () => {
                   opacity: successOpacity,
                 }}
               >
-                ✓ Signed in!
+                Signed in
               </span>
             ) : (
               <>

@@ -156,7 +156,16 @@ export const MetricsScene: React.FC = () => {
                   gap: 12,
                 }}
               >
-                <span style={{ fontSize: 22 }}>⚠️</span>
+                <span
+                  style={{
+                    fontSize: 22,
+                    color: colors.border,
+                    fontWeight: 800,
+                    fontFamily: "system-ui, -apple-system, sans-serif",
+                  }}
+                >
+                  !
+                </span>
                 <span
                   style={{
                     color: colors.text,
@@ -174,7 +183,7 @@ export const MetricsScene: React.FC = () => {
       </div>
 
       <TextOverlay
-        text="Yikes... let's fix this 🔧"
+        text="Let's fix this"
         startFrame={start + 110}
         duration={40}
         position="bottom"

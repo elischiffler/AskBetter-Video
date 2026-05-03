@@ -245,7 +245,15 @@ export const AnalyzeScene: React.FC = () => {
                     gap: 8,
                   }}
                 >
-                  <span style={{ fontSize: 18 }}>💬</span>
+                  <span
+                    style={{
+                      fontSize: 18,
+                      color: COLORS.primaryLight,
+                      fontWeight: 700,
+                    }}
+                  >
+                    //
+                  </span>
                   <span
                     style={{
                       color: COLORS.textMuted,
@@ -266,7 +274,15 @@ export const AnalyzeScene: React.FC = () => {
                     gap: 8,
                   }}
                 >
-                  <span style={{ fontSize: 18 }}>⏱</span>
+                  <span
+                    style={{
+                      fontSize: 18,
+                      color: COLORS.primaryLight,
+                      fontWeight: 700,
+                    }}
+                  >
+                    ~
+                  </span>
                   <span
                     style={{
                       color: COLORS.textMuted,
@@ -296,7 +312,7 @@ export const AnalyzeScene: React.FC = () => {
                   fontFamily: "system-ui, -apple-system, sans-serif",
                 }}
               >
-                ⚠️ Poor Quality Prompt
+                ⚠ Poor Quality Prompt
               </span>
             </div>
           </div>

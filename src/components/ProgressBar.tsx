@@ -25,9 +25,9 @@ export const ProgressBar: React.FC<{
 
   const width = interpolate(
     relativeFrame,
-    [5, 35],
+    [0, 30],
     [0, (value / maxValue) * 100],
-    { extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
   );
 
   return (

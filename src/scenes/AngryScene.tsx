@@ -216,8 +216,7 @@ export const AngryScene: React.FC = () => {
                 fontFamily: "system-ui, -apple-system, sans-serif",
               }}
             >
-              1 word in. A thesis out?{" "}
-              <span style={{ fontSize: 32 }}>🤨</span>
+              1 word in. A thesis out?
             </span>
           </div>
         </div>
