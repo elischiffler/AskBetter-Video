@@ -1,7 +1,7 @@
 {
-  "name": "askbetter-video-temp",
+  "name": "askbetter-video",
   "version": "1.0.0",
-  "description": "My Remotion video",
+  "description": "AskBetter UGC promo video - AI prompt analyzer",
   "repository": {},
   "license": "UNLICENSED",
   "private": true,
